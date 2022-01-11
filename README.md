@@ -1,2 +1,2 @@
-# 0/1 Knapsack problem with binomial tree-compression and quantization 
+# 0/1 Knapsack problem with binomial tree-based compression and quantization 
  
