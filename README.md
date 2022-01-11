@@ -13,7 +13,7 @@ I implemented Baysiean optimization algorithm with gaussian model to sample the 
 
 Markdown 的核心標準沒有表格，不過表格是 GFM 的一部分，而且 *Markdown Here* 支援表格。這是在電子郵件中加入表格的好方法 － 本來是需要從其他應用程式複製貼上的工作。
 
-| Weight distribution                    | Compression rate        | Elapsed time reduction rate with compression  | Elapsed time reduction rate with compression and quantization | Performace (deviation rate compared with optimal solution)
+| Weight distribution                    | Compression rate        | Elapsed time reduction rate with compression (sec/sec)  | Elapsed time reduction rate with compression and quantization (sec/sec)| Performace (deviation rate compared with optimal solution)
 |  ------------------------------------- |:-------------:| :-----:| :-----:| :-----:|
 | Normal distribution (Center: 40)       | **40.76 %**    | **66.95% (6.42/19.43)** | **93.96% (1.17/19.43)** | **-4.96%(14556/15315)**
 | Normal distribution (Center: 75)       | 32.07 %    | 61.28% (6.66/17.20) | 92.67% (1.26/17.20) | -5.34%(11798/12463)
