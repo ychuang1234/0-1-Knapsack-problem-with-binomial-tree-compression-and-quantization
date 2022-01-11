@@ -1,4 +1,4 @@
- <h1 align="center">0/1 Knapsack problem with binomial tree-based compression and quantization </h1>
+ <h1 align="left">0/1 Knapsack problem with binomial tree-based compression and quantization </h1>
 <h2 align="center"> 
  
   ## Goal
