@@ -25,7 +25,7 @@ When the weights distribution is skewed more toward lower part of the possible r
 | Normal distribution (Center: 75)       | 32.07 %    | 61.28% (6.66/17.20) | 92.67% (1.26/17.20) | -5.34%(11798/12463)
 | Uniform distribution                   |  23.50 %    |  54.00% (10.03/21.8) | 91.70% (1.81/21.80) | -2.92%(10972/11302)
 | Normal distribution (Center: 100)      | 17.73%     |  55.44% (8.40/18.85) | 91.06% (1.65/18.45) | -4.98%(9057/9532)
-| Uniform distribution  (Center: 150)    | 5.20%       |  43.12% (10.91/19.18) | 87.96% (2.31/19.18) | -2.92%(6424/6617)
+| Normal distribution  (Center: 150)    | 5.20%       |  43.12% (10.91/19.18) | 87.96% (2.31/19.18) | -2.92%(6424/6617)
 
 ## Experiment settings and detailed results
 
