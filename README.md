@@ -2,7 +2,7 @@
 <h2 align="center"> 
  
   ## Goal
- **Compressed the data** and **quantization** techniques could lessen the solving time in 0/1 knapsack problem by up to **94%**, deviating from the optimal solution by **no more than 5%**.  
+ Using **compressed data** and **quantization** techniques to lessen the solving time in 0/1 knapsack problem with **acceptable deviation rate** from optimal solution.  
  
   ## Introduction
   
