@@ -2,16 +2,22 @@
 <h2 align="center"> 
  
   ## Goal
+ **Compressed the data** and **quantization** techniques could lessen the solving time in 0/1 knapsack problem by up to **94%**, deviating from the optimal solution by **no more than 5%**.  
+ 
+  ## Introduction
   
-Learning models with suitable hypermeters is critical for the performance of models. However, we usually select hyperparameters manually and empirically. In order to sufficiently choose the combination of hypermeters (maybe continous or discrete), which deepens the exploration for the relationship between hyperparameters and overall perforamance, one of the possible way is to utilize the gaussian process model to explore the "dark side" (not well known region, a.k.a high covariance part) in the relationship and sampling some of the combination which benefits our understanding the most.
+Using **dynamic programming (DP)** is one of efficient way to solve 0/1 knapsack problem (**maximization problem with constraint**). However, when the selected items and contraint become larger, it **increases computation time** and **takes more memory to store the result of subproblem**. In real case, the weights (cost) distribution of items is **not uniform**. Normally, the distribution is skewed toward the lower half of the possible range of the weights. I utilize this characteristics and make some items with small cost to merge into one new item with bigger cost, resulting in smaller number of items being considered.
 
   
   
   ## Description
-I implemented Baysiean optimization algorithm with gaussian model to sample the possible combinations of hyperparamters in KNN model. The dataset was created randomly with 5 cluster with 2D feature (a.k.a number of features is two), which were not disclosed in the real scenario in training process. I randomly sampled 50 combinations of hyperparameters to make the gaussian model efficienly simulate the relationship between hypermeters and overall performance of the KNN model. Through simulation with Baysiean optimization (maximizing the posterior probility), instead of training to get the real data of the model performation, which is time-comsuming.
+First, I create a binomial tree to each bucket of weights (e.g., bucket1: [w:1 - w:9], bucket2: [w:10 - w:19],...). The reason of choosing binomial heap to record the items is because it only takes **O(1) time** for **deleting**, **inserting**, and **merging operation**. Second, traverse the heaps to search if there are possible sub-heaps that could be merged into the bucket with higher range of cost. After compression, I also quantized the cost in the same bucket to trim some variability in weights, accelerating the process in solving problem.
+ <p align="center">
+ <img src=https://github.com/ychuang1234/0-1-Knapsack-problem-with-binomial-tree-compression-and-quantization/blob/057e6b00961f6a8722ce889eb0f954df7ea93dfe/compression_process.JPG " width="75%" height="75%">
+ </p>
+ 
 ## Overall result
-
-Markdown 的核心標準沒有表格，不過表格是 GFM 的一部分，而且 *Markdown Here* 支援表格。這是在電子郵件中加入表格的好方法 － 本來是需要從其他應用程式複製貼上的工作。
+When the weights distribution is skewed more toward lower part of the possible range of weights, the compression rate become higher and the reduction rate of the elapsed time become higher. And the obtimality of the result is still retained around 95% of the optimal solution.
 
 | Weight distribution                    | Compression rate        | Elapsed time reduction rate with compression (sec/sec)  | Elapsed time reduction rate with compression and quantization (sec/sec)| Performace (deviation rate compared with optimal solution)
 |  ------------------------------------- |:-------------:| :-----:| :-----:| :-----:|
@@ -21,9 +27,9 @@ Markdown 的核心標準沒有表格，不過表格是 GFM 的一部分，而且
 | Normal distribution (Center: 100)      | 17.73%     |  55.44% (8.40/18.85) | 91.06% (1.65/18.45) | -4.98%(9057/9532)
 | Uniform distribution  (Center: 150)    | 5.20%       |  43.12% (10.91/19.18) | 87.96% (2.31/19.18) | -2.92%(6424/6617)
 
-## Experiment setting and detailed result
+## Experiment settings and detailed results
 
-這是我們的 Logo（把游標指向 Logo 可以看到標題文字）
+This is the output from .ipynb file with various experiment settings.
 <p align="left">
  <img src=https://github.com/ychuang1234/0-1-Knapsack-problem-with-binomial-tree-compression-and-quantization/blob/2b3796104b9c9fe68211f2cecdfa33ffc9f4c052/result1.JPG " width="30%" height="40%">
   <img src=https://github.com/ychuang1234/0-1-Knapsack-problem-with-binomial-tree-compression-and-quantization/blob/2b3796104b9c9fe68211f2cecdfa33ffc9f4c052/result2.JPG " width="30%" height="40%">
